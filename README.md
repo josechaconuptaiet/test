@@ -50,19 +50,41 @@ import { Inpux } from 'ac-components';
 />
 ```
 
-#### Props de Inpux
+#### API de Inpux
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
 | `name` | Nombre único para el campo y validación | `string` | - |
 | `label` | Etiqueta que aparece arriba del input | `string` | - |
+| `showLabel` | Muestra u oculta la etiqueta | `boolean` | `true` |
+| `placeholder` | Texto de ayuda dentro del campo | `string` | `'Escribe algo...'` |
+| `showPlaceholder` | Muestra u oculta el placeholder | `boolean` | `true` |
 | `type` | Tipo de input (text, password, number, email, etc.) | `string` | `'text'` |
+| `value` | Valor controlado del input | `string \| number` | - |
+| `defaultValue` | Valor inicial (modo no controlado) | `string \| number` | `''` |
+| `width` | Ancho del componente (px, %, etc) | `string \| number` | `'100%'` |
+| `height` | Alto del campo de entrada | `string \| number` | - |
 | `size` | Tamaño del componente | `'small' \| 'medium' \| 'large'` | `'medium'` |
 | `variant` | Estilo visual del input | `'outlined' \| 'filled' \| 'underlined' \| 'borderless'` | `'outlined'` |
-| `width` | Ancho del componente (px, %, etc) | `string \| number` | `'100%'` |
 | `color` | Color principal (foco y acento) | `string` | `'#6366f1'` |
 | `required` | Si el campo es obligatorio | `boolean` | `false` |
+| `minLength` | Cantidad mínima de caracteres | `number` | - |
+| `maxLength` | Cantidad máxima de caracteres | `number` | - |
 | `textOnly` | Bloquea todo lo que no sea letras | `boolean` | `false` |
-| `showCounter` | Muestra contador si hay maxLength | `boolean` | `false` |
+| `allowSpecialChars`| Permite o bloquea caracteres especiales | `boolean` | `true` |
+| `allowedChars` | Regex o cadena de caracteres permitidos | `string` | - |
+| `showCounter` | Muestra contador de caracteres | `boolean` | `false` |
+| `prefix` | Elemento o icono al inicio | `ReactNode` | - |
+| `suffix` | Elemento o icono al final | `ReactNode` | - |
+| `status` | Estado visual del campo | `'default' \| 'error' \| 'warning'` | `'default'` |
+| `errorMessage` | Mensaje de error personalizado | `string` | - |
+| `disabled` | Deshabilita el campo | `boolean` | `false` |
+| `readOnly` | Pone el campo en modo lectura | `boolean` | `false` |
+| `autoComplete` | Atributo autocomplete de HTML | `string` | - |
+| `className` | Clases CSS adicionales | `string` | - |
+| `style` | Estilos inline adicionales | `object` | - |
+| `onChange` | Callback al cambiar el valor | `function(val, event)` | - |
+| `onBlur` | Callback al perder el foco | `function(event)` | - |
+| `onFocus` | Callback al ganar el foco | `function(event)` | - |
 
 ### 2. Select (Selector Premium)
 ![Select Showcase](./docs/select.png)
@@ -87,15 +109,31 @@ const options = [
 />
 ```
 
-#### Props de Select
+#### API de Select
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
-| `options` | Lista de opciones para el menú | `{value, label}[]` | `[]` |
+| `name` | Nombre del campo | `string` | - |
+| `label` | Etiqueta del selector | `string` | - |
+| `showLabel` | Muestra u oculta la etiqueta | `boolean` | `true` |
+| `options` | Lista de opciones | `{value, label}[]` | `[]` |
+| `value` | Valor seleccionado (controlado) | `any \| any[]` | - |
+| `defaultValue` | Valor inicial | `any \| any[]` | - |
+| `placeholder` | Texto cuando no hay selección | `string` | `'Seleccionar...'` |
 | `searchable` | Habilita búsqueda interna | `boolean` | `false` |
-| `multiple` | Permite seleccionar varias opciones | `boolean` | `false` |
-| `clearable` | Muestra botón para limpiar selección | `boolean` | `false` |
-| `color` | Color de realce y foco | `string` | `'#6366f1'` |
+| `searchPlaceholder`| Placeholder del buscador | `string` | `'Buscar...'` |
+| `multiple` | Permite selección múltiple | `boolean` | `false` |
+| `clearable` | Permite limpiar la selección | `boolean` | `false` |
 | `width` | Ancho total | `string \| number` | `'100%'` |
+| `height` | Alto del selector | `string \| number` | - |
+| `maxDropdownHeight`| Alto máximo del menú desplegable | `number` | - |
+| `color` | Color de realce y foco | `string` | `'#6366f1'` |
+| `noResultsText` | Texto cuando no hay coincidencias | `string` | `'Sin resultados'` |
+| `disabled` | Deshabilita el selector | `boolean` | `false` |
+| `required` | Marca como obligatorio | `boolean` | `false` |
+| `className` | Clases CSS adicionales | `string` | - |
+| `style` | Estilos inline adicionales | `object` | - |
+| `onChange` | Callback al cambiar selección | `function(val)` | - |
+| `onBlur` | Callback al perder foco | `function(event)` | - |
 
 ### 3. Table (Grid de Datos Avanzado)
 ![Table Showcase](./docs/table.png)
@@ -121,15 +159,26 @@ const columns = [
 />
 ```
 
-#### Props de Table
+#### API de Table
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
 | `columns` | Configuración de columnas | `ColumnDef[]` | `[]` |
-| `data` | Arreglo de objetos con la información | `object[]` | `[]` |
-| `pagination` | Activa la paginación inferior | `boolean` | `true` |
-| `searchable` | Muestra el buscador global | `boolean` | `true` |
-| `color` | Color para indicadores y paginación | `string` | `'#4f46e5'` |
-| `height` | Alto máximo de la caja de datos | `string \| number` | - |
+| `data` | Arreglo de datos | `object[]` | `[]` |
+| `width` | Ancho total | `string \| number` | `'100%'` |
+| `height` | Alto máximo del área de datos | `string \| number` | - |
+| `color` | Color de acento y paginación | `string` | `'#4f46e5'` |
+| `pagination` | Habilita paginación | `boolean` | `true` |
+| `pageSize` | Filas por página iniciales | `number` | `10` |
+| `pageSizeOptions` | Opciones de tamaño de página | `number[]` | `[5, 10, 20, 50]` |
+| `searchable` | Muestra buscador global | `boolean` | `true` |
+| `searchPlaceholder`| Placeholder del buscador | `string` | `'Buscar...'` |
+| `emptyMessage` | Mensaje si no hay datos | `string` | `'No hay datos para mostrar'` |
+| `rowKey` | Propiedad que actúa como ID único | `string` | - |
+| `striped` | Filas con colores alternos | `boolean` | `true` |
+| `hoverable` | Efecto hover en filas | `boolean` | `true` |
+| `className` | Clases CSS adicionales | `string` | - |
+| `style` | Estilos inline adicionales | `object` | - |
+| `onRowClick` | Callback al pulsar una fila | `function(row)` | - |
 
 ### 4. DateRange (Selector de Fechas)
 ![DateRange Showcase](./docs/daterange.png)
@@ -151,13 +200,30 @@ const [range, setRange] = useState({ start: null, end: null });
 />
 ```
 
-#### Props de DateRange
+#### API de DateRange
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
-| `value` | Objeto con fecha inicio y fin | `{start, end}` | - |
-| `allowPastDates` | Habilita selección de fechas pasadas | `boolean` | `true` |
-| `color` | Color del rango seleccionado | `string` | `'#6366f1'` |
-| `placeholder` | Texto de ayuda cuando no hay selección | `string` | `'Seleccionar rango'` |
+| `name` | Nombre del campo | `string` | - |
+| `label` | Etiqueta del selector | `string` | - |
+| `showLabel` | Muestra u oculta la etiqueta | `boolean` | `true` |
+| `value` | Rango seleccionado `{start, end}` | `object` | - |
+| `defaultValue` | Rango inicial | `object` | - |
+| `placeholder` | Texto sin selección | `string` | `'Seleccionar rango'` |
+| `width` | Ancho total | `string \| number` | `'100%'` |
+| `height` | Alto del campo de texto | `string \| number` | - |
+| `color` | Color del rango y botones | `string` | `'#6366f1'` |
+| `rangeColor` | Color específico del rango | `string` | - |
+| `allowFutureDates` | Permite fechas futuras | `boolean` | `true` |
+| `allowPastDates` | Permite fechas pasadas | `boolean` | `true` |
+| `minDate` | Fecha mínima permitida | `Date` | - |
+| `maxDate` | Fecha máxima permitida | `Date` | - |
+| `locale` | Idioma del calendario | `'es' \| 'en'` | `'es'` |
+| `required` | Marca como obligatorio | `boolean` | `false` |
+| `disabled` | Deshabilita el selector | `boolean` | `false` |
+| `formatDate` | Función para formatear la fecha | `function` | - |
+| `className` | Clases CSS adicionales | `string` | - |
+| `style` | Estilos inline adicionales | `object` | - |
+| `onChange` | Callback al cambiar el rango | `function(range)` | - |
 
 ### 5. Modal (Ventanas Emergentes)
 ![Modal Showcase](./docs/modal.png)
@@ -180,14 +246,23 @@ const [isOpen, setIsOpen] = useState(false);
 </Modal>
 ```
 
-#### Props de Modal
+#### API de Modal
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
-| `isOpen` | Controla si el modal está visible | `boolean` | `false` |
-| `type` | Tipo visual predefinido | `'info' \| 'success' \| 'error' \| 'custom'` | `'info'` |
+| `isOpen` | Controla la visibilidad | `boolean` | `false` |
 | `title` | Título del modal | `string` | `'Aviso'` |
-| `maxWidth` | Ancho máximo del modal | `string \| number` | `500` |
-| `onClose` | Función al cerrar el modal | `function` | - |
+| `type` | Tipo predefinido | `'info' \| 'success' \| 'error' \| 'custom'` | `'info'` |
+| `maxWidth` | Ancho máximo (en px) | `number` | `500` |
+| `color` | Color del tema / icono | `string` | - |
+| `overlayColor` | Color del fondo detrás del modal | `string` | `'rgba(0,0,0,0.5)'` |
+| `showCloseButton` | Muestra la X de cerrar | `boolean` | `true` |
+| `closeOnOverlay` | Cierra al pulsar fuera | `boolean` | `true` |
+| `closeOnEscape` | Cierra al pulsar Escape | `boolean` | `true` |
+| `icon` | Icono personalizado | `ReactNode` | - |
+| `footer` | Pie del modal personalizado | `ReactNode` | - |
+| `className` | Clases CSS adicionales | `string` | - |
+| `style` | Estilos inline adicionales | `object` | - |
+| `onClose` | Callback al cerrar | `function` | - |
 
 ---
 
