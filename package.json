@@ -1,0 +1,52 @@
+{
+  "name": "ac-components",
+  "version": "1.0.0",
+  "description": "AC Components — Librería de componentes React con validaciones, formularios y UI avanzada",
+  "type": "module",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "zustand": "^5.0.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "vite": "^8.0.12",
+    "vite-plugin-css-injected-by-js": "^5.0.1"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "input",
+    "select",
+    "table",
+    "modal",
+    "daterange"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

@@ -1,0 +1,141 @@
+/* =============================================
+   AC Components — Design Tokens & Base Styles
+   ============================================= */
+
+:root {
+  /* Colors */
+  --ac-color-primary: #6366f1;
+  --ac-color-primary-hover: #4f46e5;
+  --ac-color-primary-light: #e0e7ff;
+  --ac-color-success: #22c55e;
+  --ac-color-success-light: #dcfce7;
+  --ac-color-error: #ef4444;
+  --ac-color-error-light: #fee2e2;
+  --ac-color-info: #3b82f6;
+  --ac-color-info-light: #dbeafe;
+  --ac-color-warning: #f59e0b;
+  --ac-color-warning-light: #fef3c7;
+
+  /* Neutrals */
+  --ac-color-bg: #ffffff;
+  --ac-color-surface: #f8fafc;
+  --ac-color-border: #e2e8f0;
+  --ac-color-border-focus: #6366f1;
+  --ac-color-text: #0f172a;
+  --ac-color-text-secondary: #64748b;
+  --ac-color-text-placeholder: #94a3b8;
+  --ac-color-disabled-bg: #f1f5f9;
+  --ac-color-disabled-text: #94a3b8;
+  --ac-color-overlay: rgba(15, 23, 42, 0.5);
+
+  /* Spacing */
+  --ac-spacing-xs: 4px;
+  --ac-spacing-sm: 8px;
+  --ac-spacing-md: 12px;
+  --ac-spacing-lg: 16px;
+  --ac-spacing-xl: 24px;
+  --ac-spacing-2xl: 32px;
+
+  /* Border Radius */
+  --ac-radius-sm: 6px;
+  --ac-radius-md: 8px;
+  --ac-radius-lg: 12px;
+  --ac-radius-xl: 16px;
+  --ac-radius-full: 9999px;
+
+  /* Shadows */
+  --ac-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --ac-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --ac-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --ac-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --ac-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ac-font-size-xs: 0.75rem;
+  --ac-font-size-sm: 0.8125rem;
+  --ac-font-size-md: 0.875rem;
+  --ac-font-size-lg: 1rem;
+  --ac-font-size-xl: 1.125rem;
+  --ac-font-weight-normal: 400;
+  --ac-font-weight-medium: 500;
+  --ac-font-weight-semibold: 600;
+  --ac-font-weight-bold: 700;
+
+  /* Transitions */
+  --ac-transition-fast: 150ms ease;
+  --ac-transition-normal: 250ms ease;
+  --ac-transition-slow: 350ms ease;
+
+  /* Z-index */
+  --ac-z-dropdown: 100;
+  --ac-z-modal-overlay: 1000;
+  --ac-z-modal: 1001;
+}
+
+/* Minimal reset scoped to ac- components */
+[class^="ac-"],
+[class*=" ac-"] {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ac-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations */
+@keyframes ac-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ac-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes ac-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ac-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ac-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ac-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+@keyframes ac-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
