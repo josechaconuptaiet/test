@@ -36,6 +36,20 @@ function App() {
 
 Entrada de texto avanzada con soporte para validación en tiempo real, prefijos, sufijos y estados de error/advertencia.
 
+#### Ejemplo de Uso
+```jsx
+import { Inpux } from 'ac-components';
+
+<Inpux 
+  label="Usuario" 
+  placeholder="Escribe tu nombre de usuario" 
+  required 
+  prefix={<span>👤</span>}
+  variant="outlined"
+  color="#6366f1"
+/>
+```
+
 #### Props de Inpux
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
@@ -55,6 +69,24 @@ Entrada de texto avanzada con soporte para validación en tiempo real, prefijos,
 
 Selector personalizable que soporta búsqueda, selección múltiple y limpieza de datos.
 
+#### Ejemplo de Uso
+```jsx
+import { Select } from 'ac-components';
+
+const options = [
+  { value: 'react', label: 'React' },
+  { value: 'vue', label: 'Vue' }
+];
+
+<Select 
+  label="Framework Favorito" 
+  options={options} 
+  searchable 
+  multiple 
+  placeholder="Selecciona uno o varios" 
+/>
+```
+
 #### Props de Select
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
@@ -69,6 +101,25 @@ Selector personalizable que soporta búsqueda, selección múltiple y limpieza d
 ![Table Showcase](./docs/table.png)
 
 Potente grid de datos con ordenamiento lógico, filtrado por columna y búsqueda global.
+
+#### Ejemplo de Uso
+```jsx
+import { Table } from 'ac-components';
+
+const columns = [
+  { key: 'id', header: 'ID', width: 60 },
+  { key: 'nombre', header: 'Nombre', sortable: true, filterable: true },
+  { key: 'rol', header: 'Rol', filterable: true }
+];
+
+<Table 
+  columns={columns} 
+  data={miArregloDeDatos} 
+  pagination 
+  searchable 
+  color="#4f46e5"
+/>
+```
 
 #### Props de Table
 | Propiedad | Descripción | Tipo | Por defecto |
@@ -85,6 +136,21 @@ Potente grid de datos con ordenamiento lógico, filtrado por columna y búsqueda
 
 Calendario interactivo para selección de rangos de fechas con soporte para límites de tiempo.
 
+#### Ejemplo de Uso
+```jsx
+import { DateRange } from 'ac-components';
+
+const [range, setRange] = useState({ start: null, end: null });
+
+<DateRange 
+  label="Periodo de Reporte"
+  value={range}
+  onChange={(val) => setRange(val)}
+  allowPastDates={false}
+  color="#6366f1"
+/>
+```
+
 #### Props de DateRange
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
@@ -98,6 +164,22 @@ Calendario interactivo para selección de rangos de fechas con soporte para lím
 
 Modales elegantes con tipos predefinidos (info, success, error) y contenido personalizado.
 
+#### Ejemplo de Uso
+```jsx
+import { Modal } from 'ac-components';
+
+const [isOpen, setIsOpen] = useState(false);
+
+<Modal 
+  isOpen={isOpen} 
+  onClose={() => setIsOpen(false)} 
+  type="success"
+  title="Operación Exitosa"
+>
+  <p>Los datos han sido guardados correctamente.</p>
+</Modal>
+```
+
 #### Props de Modal
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
@@ -106,6 +188,26 @@ Modales elegantes con tipos predefinidos (info, success, error) y contenido pers
 | `title` | Título del modal | `string` | `'Aviso'` |
 | `maxWidth` | Ancho máximo del modal | `string \| number` | `500` |
 | `onClose` | Función al cerrar el modal | `function` | - |
+
+---
+
+## 🛡️ Validación Global
+
+La librería incluye un hook para acceder al estado de validación global, ideal para bloquear botones de "Enviar" si hay errores.
+
+```jsx
+import { useValidationStore } from 'ac-components';
+
+function MiFormulario() {
+  const { errors, isValid } = useValidationStore();
+  
+  return (
+    <button disabled={!isValid}>
+      Enviar ({Object.keys(errors).length} errores)
+    </button>
+  );
+}
+```
 
 ---
 
