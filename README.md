@@ -15,12 +15,12 @@ npm install ac-components
 No necesitas importar el CSS por separado, ¡ya viene incluido en la librería!
 
 ```jsx
-import { Inpux, Select, Table } from 'ac-components';
+import { Input, Select, Table } from 'ac-components';
 
 function App() {
   return (
     <div>
-      <Inpux label="Nombre" placeholder="Escribe tu nombre" required />
+      <Input label="Nombre" placeholder="Escribe tu nombre" required />
       <Select label="País" options={[{value: 'es', label: 'España'}]} />
     </div>
   );
@@ -31,16 +31,16 @@ function App() {
 
 ## 🎨 Componentes
 
-### 1. Inpux (Entradas de Texto)
-![Inpux Showcase](./docs/inpux.png)
+### 1. Input (Entradas de Texto)
+![Input Showcase](./docs/inpux.png)
 
 Entrada de texto avanzada con soporte para validación en tiempo real, prefijos, sufijos y estados de error/advertencia.
 
 #### Ejemplo de Uso
 ```jsx
-import { Inpux } from 'ac-components';
+import { Input } from 'ac-components';
 
-<Inpux 
+<Input 
   label="Usuario" 
   placeholder="Escribe tu nombre de usuario" 
   required 
@@ -50,7 +50,7 @@ import { Inpux } from 'ac-components';
 />
 ```
 
-#### API de Inpux
+#### API de Input
 | Propiedad | Descripción | Tipo | Por defecto |
 |-----------|-------------|------|-------------|
 | `name` | Nombre único para el campo y validación | `string` | - |

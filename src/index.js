@@ -6,7 +6,7 @@
 import './styles/global.css';
 
 // Components
-export { Inpux } from './components/Inpux';
+export { Input } from './components/Input';
 export { Select } from './components/Select';
 export { DateRange } from './components/DateRange';
 export { Modal } from './components/Modal';

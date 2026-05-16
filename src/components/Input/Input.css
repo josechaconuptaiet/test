@@ -1,0 +1,251 @@
+.ac-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.ac-input-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ac-input-req {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.ac-input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.ac-input-el {
+  width: 100%;
+  padding: 0 12px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: #1e293b;
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.ac-input-el::placeholder {
+  color: #94a3b8;
+}
+
+/* Tamaños */
+.ac-input--small .ac-input-el {
+  height: 24px;
+  font-size: 0.75rem;
+  padding: 0 8px;
+  border-radius: 6px;
+}
+
+.ac-input--medium .ac-input-el {
+  height: 32px;
+  font-size: 0.8125rem;
+}
+
+.ac-input--large .ac-input-el {
+  height: 40px;
+  font-size: 0.875rem;
+  padding: 0 14px;
+}
+
+/* Variantes */
+.ac-input--outlined .ac-input-el:hover:not(:disabled):not(:focus) {
+  border-color: #cbd5e1;
+}
+
+.ac-input--outlined .ac-input-el:focus {
+  border-color: var(--ac-primary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ac-primary-color), transparent 88%);
+}
+
+.ac-input--filled .ac-input-el {
+  background-color: #f1f5f9;
+  border-color: transparent;
+}
+
+.ac-input--filled .ac-input-el:hover:not(:disabled):not(:focus) {
+  background-color: #e2e8f0;
+}
+
+.ac-input--filled .ac-input-el:focus {
+  background-color: #fff;
+  border-color: var(--ac-primary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ac-primary-color), transparent 88%);
+}
+
+.ac-input--underlined .ac-input-el {
+  border-width: 0 0 1.5px 0;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+}
+
+.ac-input--underlined .ac-input-el:focus {
+  border-color: var(--ac-primary-color);
+}
+
+.ac-input--borderless .ac-input-el {
+  border-color: transparent;
+  background-color: transparent;
+  padding: 0;
+}
+
+.ac-input--borderless .ac-input-el:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Estados */
+.ac-status-error .ac-input-el {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2;
+}
+
+.ac-status-error .ac-input-el:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+
+.ac-status-error .ac-input-label,
+.ac-status-error .ac-input-msg {
+  color: #ef4444;
+}
+
+.ac-status-error .ac-input-icon {
+  color: #ef4444;
+}
+
+.ac-status-warning .ac-input-el {
+  border-color: #f59e0b !important;
+  background-color: #fef3c7;
+}
+
+.ac-status-warning .ac-input-el:focus {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12) !important;
+}
+
+.ac-status-warning .ac-input-label,
+.ac-status-warning .ac-input-msg {
+  color: #f59e0b;
+}
+
+.ac-status-warning .ac-input-icon {
+  color: #f59e0b;
+}
+
+/* Iconos */
+.ac-input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: #64748b;
+  pointer-events: none;
+  z-index: 2;
+  font-size: 0.9em;
+}
+
+.ac-prefix {
+  left: 10px;
+}
+
+.ac-suffix {
+  right: 10px;
+}
+
+.ac-has-prefix .ac-input-el {
+  padding-left: 32px;
+}
+
+.ac-has-suffix .ac-input-el {
+  padding-right: 32px;
+}
+
+.ac-input--small.ac-has-prefix .ac-input-el {
+  padding-left: 26px;
+}
+
+.ac-input--small.ac-has-suffix .ac-input-el {
+  padding-right: 26px;
+}
+
+/* Footer */
+.ac-input-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  min-height: 16px;
+}
+
+.ac-input-msg {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.ac-pwd-toggle {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  pointer-events: auto;
+  /* IMPORTANTE: Permitir clics */
+}
+
+.ac-pwd-toggle * {
+  pointer-events: none;
+  /* Los hijos no deben capturar el clic */
+}
+
+.ac-pwd-toggle:hover {
+  color: #475569;
+}
+
+.ac-pwd-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ac-input-count {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-left: auto;
+}
+
+.ac-count-limit {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.ac-input-el:disabled {
+  background-color: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+
+.ac-input-el[readonly] {
+  background-color: #f8fafc;
+  cursor: default;
+}
