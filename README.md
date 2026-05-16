@@ -292,7 +292,3 @@ function MiFormulario() {
 - **Inyección Automática**: No requiere configuración de CSS adicional.
 - **Personalización Total**: Soporte universal para `className`, `style`, `width` y `height`.
 - **Accesibilidad**: Diseñado siguiendo estándares de usabilidad modernos.
-
-## 📄 Licencia
-
-Este proyecto está bajo la licencia MIT.
